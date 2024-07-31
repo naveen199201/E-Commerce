@@ -8,18 +8,16 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [password, setPassword] = useState('');
   const [user_id, setUser_id] = useState('');
-  const [ifLogged, setIfLogged]=useState(false)
-  const Navigate=useNavigate()
+  const [ifLogged, setIfLogged] = useState(false)
+  const Navigate = useNavigate()
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post('http://localhost:8000/api/login/', {
         user_id,
         password,
         ifLogged,
       });
-
       if (response.status === 200) {
         const data = response.data;
         setIfLogged(true);
@@ -32,7 +30,7 @@ const Login = () => {
       Navigate('/home')
     }
   };
-  
+
   return (
     <>
       <Navbar />

@@ -5,6 +5,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 
 import { Home, Product, Products, AboutPage, ContactPage, Cart, Login, Register, Checkout, PageNotFound } from "./pages"
@@ -14,6 +15,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Provider store={store}>
+    <Auth0Provider
+    domain="dev-x571prqzpnonvey4.us.auth0.com"
+    clientId="1ihf1vHasZ8yYmWF7jERe2vVgbSieetK"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+  >
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product" element={<Products />} />
@@ -29,6 +37,7 @@ root.render(
         <Route path="/product/*" element={<PageNotFound />} />
         
       </Routes>
+      </Auth0Provider>,
     </Provider>
   </BrowserRouter>
 );
