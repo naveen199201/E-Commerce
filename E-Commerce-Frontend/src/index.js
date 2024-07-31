@@ -19,7 +19,7 @@ root.render(
     domain="dev-x571prqzpnonvey4.us.auth0.com"
     clientId="1ihf1vHasZ8yYmWF7jERe2vVgbSieetK"
     authorizationParams={{
-      redirect_uri: window.location.origin
+      redirect_uri: "https://e-commerce-delta-smoky.vercel.app"
     }}
   >
       <Routes>
